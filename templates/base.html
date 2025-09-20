@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul style="display: flex; gap: 20px; justify-content: center;">
+            <li><a href="{% url 'post_list' %}">Inicio</a></li>
+            <li><a href="#">Nuevo Post</a></li>
+            <li><a href="#">Perfil</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
