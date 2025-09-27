@@ -6,4 +6,5 @@
 <p>{{ post.body }}</p>
 <p>{{ post.created_at }}</p>
 <a href="{% url 'post_list' %}">Volver al Home</a>
+<a href="{% url 'post_update' post.pk %}">Editar Post</a>
 {% endblock %}
