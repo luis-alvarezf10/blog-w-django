@@ -1,9 +1,5 @@
 from django.db import models
-<<<<<<< HEAD
-from django.urls import reverse 
-=======
 from django.urls import reverse
->>>>>>> feature/update
 
 
 # Create your models here :).
@@ -16,13 +12,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-<<<<<<< HEAD
 
     def get_absolute_url(self):
         return reverse("post_detail", kwargs={"pk": self.pk})
-    
-=======
-    
-    def get_absolute_url(self):
-        return reverse("post_detail", kwargs={"pk": self.pk})
->>>>>>> feature/update
