@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Detalles de Post</h1>
 <p>{{ post.title }}</p>
-<p>{{ post.content }}</p>
+<p>{{ post.body }}</p>
 <p>{{ post.created_at }}</p>
 <a href="{% url 'post_list' %}">Volver al Home</a>
 {% endblock %}
