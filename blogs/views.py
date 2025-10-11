@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView, 
@@ -15,12 +16,12 @@ class PostListView(ListView):
     context_object_name = "post_list"
 
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin,DetailView):
     model = Post
     template_name = "post_detail.html"
     context_object_name = "post"
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "post_create.html"
     fields = ["title", "body", "author"]

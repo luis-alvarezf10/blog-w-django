@@ -6,7 +6,7 @@
 <form method="post">
     {% csrf_token %}
     <p>Estas seguro que quieres borrar el post: {{ post.title }}</p>
-    <button type="submit"> si, borrar</button>
+    <button class="btn btn-danger" type="submit"> si, borrar</button>
 
 </form>
 

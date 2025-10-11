@@ -21,19 +21,19 @@
         <p style="color: red">Usuario: {{ user.username }}</p>
 
           <ul class="navbar-nav">
-            <li><a href="{% url 'post_list' %}">Inicio</a></li>
+            <li class="nav-item" ><a href="{% url 'post_list' %}" class="nav-link active">Inicio</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'post_create' %}">Nuevo Post</a></li>
+            <li class="nav-item"><a href="{% url 'post_create' %}" class="nav-link">Nuevo Post</a></li>
             {% endif %} {% if user.is_authenticated %}
-            <li>
+            <li class="nav-item">
               <form method="post" action="{% url 'logout' %}">
                 <!-- es un token que django genera para prevenir ataques de inyeccion -->
                 {% csrf_token %}
-                <button type="submit">Cerrar Sesion</button>
+                <button type="submit"  class="btn btn-danger">Cerrar Sesion</button>
               </form>
             </li>
             {% else %}
-            <li><a href="{% url 'login' %}">Iniciar Sesion</a></li>
+            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Iniciar Sesion</a></li>
             {% endif %}
           </ul>
       </div>
