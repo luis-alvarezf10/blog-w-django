@@ -2,35 +2,48 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post adk</title>
-    <link rel="stylesheet" href="{% static 'base.css' %}">
-</head>
-<body>
-    <nav style="display: flex; justify-content: space-between;">
-        <p style="color: red;">Usuario: {{ user.username }}</p>
-        <ul style="display: flex; gap: 20px; justify-content: center;">
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <p style="color: red">Usuario: {{ user.username }}</p>
+
+          <ul class="navbar-nav">
             <li><a href="{% url 'post_list' %}">Inicio</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'post_create' %}">Nuevo Post</a></li>
-            {% endif %}
-            {% if user.is_authenticated %}
+            {% endif %} {% if user.is_authenticated %}
             <li>
-                <form method="post" action="{% url 'logout' %}">
-                    <!-- es un token que django genera para prevenir ataques de inyeccion -->
-                    {% csrf_token %}
-                    <button type="submit">Cerrar Sesion</button>
-                </form>
+              <form method="post" action="{% url 'logout' %}">
+                <!-- es un token que django genera para prevenir ataques de inyeccion -->
+                {% csrf_token %}
+                <button type="submit">Cerrar Sesion</button>
+              </form>
             </li>
             {% else %}
             <li><a href="{% url 'login' %}">Iniciar Sesion</a></li>
             {% endif %}
-        </ul>
+          </ul>
+      </div>
     </nav>
     <!-- es un bloque que se utiliza para cargar contenido dinamico -->
-    {% block content %}
-    {% endblock %}
-</body>
+    {% block content %} {% endblock %}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
