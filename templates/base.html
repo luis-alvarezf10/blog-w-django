@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="{% static 'base.css' %}">
 </head>
 <body>
-    <nav>
+    <nav style="display: flex; justify-content: space-between;">
+        <p style="color: red;">Usuario: {{ user.username }}</p>
         <ul style="display: flex; gap: 20px; justify-content: center;">
             <li><a href="{% url 'post_list' %}">Inicio</a></li>
+            {% if user.is_authenticated %}
             <li><a href="{% url 'post_create' %}">Nuevo Post</a></li>
+            {% endif %}
             {% if user.is_authenticated %}
             <li>
                 <form method="post" action="{% url 'logout' %}">

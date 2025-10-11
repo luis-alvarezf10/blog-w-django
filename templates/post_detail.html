@@ -6,6 +6,9 @@
 <p>{{ post.title }}</p>
 <p>{{ post.body }}</p>
 <p>{{ post.created_at }}</p>
+<p>El autor de este post es: <strong style="color: red;">{{ post.author }}</strong></p>
+{% if user.is_authenticated and post.author == user %}
 <a href="{% url 'post_update' post.pk %}">Editar Post</a>
 <a href="{% url 'post_delete' post.pk %}">Eliminar Post</a>
+{% endif %}
 {% endblock %}
